@@ -1,0 +1,21 @@
+{
+    "name": "brezgalov/port-transit-common",
+    "description": "port transit common utils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Brezgalov",
+            "email": "oleg.brezgalov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brezgalov\\PortTransitCommon\\": "src/"
+        }
+    }
+}
