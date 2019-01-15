@@ -1,6 +1,6 @@
 <?php
 
-namespace brezgalov\common\utils;
+namespace Brezgalov\PortTransitCommon\Utils;
 
 class CoordsHelper
 {

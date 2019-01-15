@@ -1,6 +1,6 @@
 <?php
 
-namespace brezgalov\common\utils;
+namespace Brezgalov\PortTransitCommon\Models;
 
 /**
  * Class represents a point with coords
