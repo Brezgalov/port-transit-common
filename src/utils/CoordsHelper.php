@@ -11,7 +11,7 @@ class CoordsHelper
      * @param $lon2
      * @return float
      */
-    public static function getDistance($lat1, $lon1, $lat2, $lon2, $unit = 'K')
+    public static function getDistance(Point $p1, Point $p2, $unit = 'K')
     {
         if ($lat1 === $lat2 && $lon1 === $lon2) {
             return 0;

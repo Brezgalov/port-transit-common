@@ -29,6 +29,16 @@ class Point
     }
 
     /**
+     * is Point equal
+     * @param Point $point
+     * @return bool
+     */
+    public function equals(Point $point)
+    {
+        return $this->lat == $point->lat && $this->lon == $point->lon;
+    }
+
+    /**
      * Point constructor. Exapm
      * @param null|array $lat
      * @param null $lon
