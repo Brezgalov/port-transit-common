@@ -2,22 +2,23 @@
 
 namespace Brezgalov\PortTransitCommon\Utils;
 
+use Brezgalov\PortTransitCommon\Models\Point;
+
 class CoordsHelper
 {
     /**
-     * @param $lat1
-     * @param $lon1
-     * @param $lat2
-     * @param $lon2
+     * @param Point $p1
+     * @param Point $p2
+     * @param string $unit
      * @return float
      */
     public static function getDistance(Point $p1, Point $p2, $unit = 'K')
     {
-        if ($lat1 === $lat2 && $lon1 === $lon2) {
+        if ($p1->equals($p2)) {
             return 0;
         }
-        $theta = $lon1 - $lon2;
-        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $theta = $p1->lon - $p2->lon;
+        $dist = sin(deg2rad($p1->lat)) * sin(deg2rad($p2->lat)) + cos(deg2rad($p1->lat)) * cos(deg2rad($p2->lat)) * cos(deg2rad($theta));
         $dist = acos($dist);
         $dist = rad2deg($dist);
         $miles = $dist * 60 * 1.1515;
