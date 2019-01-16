@@ -5,6 +5,28 @@ namespace Brezgalov\PortTransitCommon\Utils;
 class PlatesHelper
 {
     /**
+     * @var array
+     */
+    protected static $cyrLow = [
+        'а','б','в','г','д','е','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','х','э','ю','я',
+    ];
+
+    /**
+     * Генерирует рандомный номер автомобиля
+     * @return string
+     */
+    public static function generateRandomPlate()
+    {
+        $countCyr = count(self::$cyrLow);
+        return self::$cyrLow[rand(0, $countCyr-1)] .
+            self::$cyrLow[rand(0, $countCyr-1)] .
+            str_pad(rand(0, 999), 3, '0', STR_PAD_LEFT) .
+            self::$cyrLow[rand(0, $countCyr-1)] .
+            str_pad(rand(0, 99), 2, '0', STR_PAD_LEFT)
+            ;
+    }
+
+    /**
      * Конвертирует символы из номера в англ для базы
      * @param string $plate
      * @return string
