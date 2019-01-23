@@ -11,7 +11,9 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "brezgalov/kladr-api-client": "^1.0",
+        "brezgalov/gmaps-api-client": "^1.0"
     },
     "autoload": {
         "psr-4": {
