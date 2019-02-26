@@ -161,6 +161,23 @@ class GeoHelper
     }
 
     /**
+     * Return array of cities with regions by city name
+     * @param $name
+     * @return mixed
+     * @throws \Exception
+     */
+    public function findCitiesByName($name)
+    {
+        $response = $this->getKladrClient()->search([
+            'query' => $name,
+            'contentType' => 'city',
+            'typeCode' => 1,
+            'withParent' => 1,
+        ]);
+        return @$response->data['result'];
+    }
+
+    /**
      * @param $query
      * @param $regionId
      * @return array
