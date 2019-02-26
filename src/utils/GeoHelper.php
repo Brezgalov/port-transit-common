@@ -36,6 +36,7 @@ class GeoHelper
         $inst = new GeoHelper();
         $inst->kladrToken = @$tokens['kladr'];
         $inst->googleToken = @$tokens['google'];
+        return $inst;
     }
 
     /**
