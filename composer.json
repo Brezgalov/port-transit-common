@@ -17,7 +17,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Brezgalov\\PortTransitCommon\\": "src/"
+            "Brezgalov\\PortTransitCommon\\": "src/",
+            "Brezgalov\\PortTransitCommon\\Utils\\": "src/utils",
+            "Brezgalov\\PortTransitCommon\\Models\\": "src/models"
         }
     }
 }

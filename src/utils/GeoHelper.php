@@ -79,7 +79,7 @@ class GeoHelper
         $response = $this->getKladrClient()->search([
             'cityId' => $kladr,
             'withParent' => 1,
-            'contentType' => 'city'
+            'contentType' => 'city',
         ]);
         if (!$response->isSuccessful()) {
             throw new \Exception('Не удается получить адресс по кладр ' . $kladr);
