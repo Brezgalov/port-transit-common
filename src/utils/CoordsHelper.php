@@ -15,7 +15,7 @@ class CoordsHelper
      */
     public static function getDistance(IPoint $p1, IPoint $p2, $unit = 'K')
     {
-        if ($p1->equals($p2)) {
+        if ($p1->pointEqualTo($p2)) {
             return 0;
         }
         $theta = $p1->getLon() - $p2->getLon();

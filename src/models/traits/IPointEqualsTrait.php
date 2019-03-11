@@ -15,7 +15,7 @@ trait IPointEqualsTrait
      * @param IPoint $point
      * @return bool
      */
-    public function equals(IPoint $point)
+    public function pointEqualTo(IPoint $point)
     {
         return $this->getLat() == $point->getLat() && $this->getLon() == $point->getLon();
     }
