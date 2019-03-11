@@ -18,5 +18,5 @@ interface IPoint
      * @param IPoint $point
      * @return bool
      */
-    public function equals(IPoint $point);
+    public function pointEqualTo(IPoint $point);
 }
