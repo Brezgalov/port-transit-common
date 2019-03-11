@@ -2,11 +2,15 @@
 
 namespace Brezgalov\PortTransitCommon\Models;
 
+use Brezgalov\PortTransitCommon\Models\Traits\IPointEqualsTrait;
+
 /**
  * Class represents a point with coords
  */
-class Point
+class Point implements IPoint
 {
+    use IPointEqualsTrait;
+
     /**
      * @var float
      */
@@ -18,34 +22,18 @@ class Point
     public $lon;
 
     /**
-     * Create class instance from array
-     * @param array $coords - [34.7, 38.45]
-     * @return Point
+     * @return float
      */
-    public static function createFromArray(array $coords)
+    public function getLat()
     {
-        list($lat, $lon) = $coords;
-        return new Point($lat, $lon);
+        return $this->lat;
     }
 
     /**
-     * is Point equal
-     * @param Point $point
-     * @return bool
+     * @return float
      */
-    public function equals(Point $point)
+    public function getLon()
     {
-        return $this->lat == $point->lat && $this->lon == $point->lon;
-    }
-
-    /**
-     * Point constructor. Exapm
-     * @param null|array $lat
-     * @param null $lon
-     */
-    public function __construct($lat = null, $lon = null)
-    {
-        $this->lat = $lat;
-        $this->lon = $lon;
+        return $this->lat;
     }
 }
