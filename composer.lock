@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d37fdbd4486991619cb1dba435fd39ae",
+    "content-hash": "e6b6d9c7706c1524dcd5dbaab931bc7e",
     "packages": [
         {
             "name": "brezgalov/api-wrapper",
@@ -80,6 +80,42 @@
             ],
             "description": "Google maps api client",
             "time": "2019-01-11T12:47:22+00:00"
+        },
+        {
+            "name": "brezgalov/i-point",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Brezgalov/i-point.git",
+                "reference": "d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Brezgalov/i-point/zipball/d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da",
+                "reference": "d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brezgalov\\IPoint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Brezgalov",
+                    "email": "oleg.brezgalov@gmail.com"
+                }
+            ],
+            "description": "geo point interface",
+            "time": "2019-03-20T13:27:51+00:00"
         },
         {
             "name": "brezgalov/kladr-api-client",

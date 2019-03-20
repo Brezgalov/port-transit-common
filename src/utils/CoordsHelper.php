@@ -2,14 +2,13 @@
 
 namespace Brezgalov\PortTransitCommon\Utils;
 
-use Brezgalov\PortTransitCommon\Models\IPoint;
-use Brezgalov\PortTransitCommon\Models\Point;
+use Brezgalov\IPoint\IPoint;
 
 class CoordsHelper
 {
     /**
-     * @param Point $p1
-     * @param Point $p2
+     * @param IPoint $p1
+     * @param IPoint $p2
      * @param string $unit
      * @return float
      */

@@ -3,8 +3,8 @@
 namespace Brezgalov\PortTransitCommon\Utils;
 
 use brezgalov\GmapsApiClient\GMapsApi;
+use Brezgalov\IPoint\IPoint;
 use brezgalov\KladrApiClient\KladrApi;
-use Brezgalov\PortTransitCommon\Models\Point;
 
 class GeoHelper
 {
@@ -74,6 +74,7 @@ class GeoHelper
     /**
      * @param $kladr
      * @return string
+     * @throws \Exception
      */
     public function findAddress($kladr)
     {
@@ -98,16 +99,14 @@ class GeoHelper
     }
 
     /**
-     * @param $from - any Point
-     * @param $to - any Point
-     * @return float|int
+     * @param IPoint $from
+     * @param IPoint $to
+     * @return array
+     * @throws \Exception
      */
-    public function getDistance($from, $to)
+    public function getDistance(IPoint $from, IPoint $to)
     {
-        $resp = $this->getGoogleClient()->getDistance(
-            new \brezgalov\GmapsApiClient\Point($from->lat, $from->lon),
-            new \brezgalov\GmapsApiClient\Point($to->lat, $to->lon)
-        );
+        $resp = $this->getGoogleClient()->getDistance($from, $to);
 
         if ($resp->isSuccessful()) {
             return $resp->data;
