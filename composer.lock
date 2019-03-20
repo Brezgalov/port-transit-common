@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6b6d9c7706c1524dcd5dbaab931bc7e",
+    "content-hash": "b6ffb7f14a1677e6704c90c6f4e30077",
     "packages": [
         {
             "name": "brezgalov/api-wrapper",
@@ -45,27 +45,28 @@
         },
         {
             "name": "brezgalov/gmaps-api-client",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/gmaps-api-client.git",
-                "reference": "4562a1fabb590d2c9a62393d67ceab68f1dba1de"
+                "reference": "1a46bd6cb67432775a02f7aac03d0e66170a1065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/gmaps-api-client/zipball/4562a1fabb590d2c9a62393d67ceab68f1dba1de",
-                "reference": "4562a1fabb590d2c9a62393d67ceab68f1dba1de",
+                "url": "https://api.github.com/repos/Brezgalov/gmaps-api-client/zipball/1a46bd6cb67432775a02f7aac03d0e66170a1065",
+                "reference": "1a46bd6cb67432775a02f7aac03d0e66170a1065",
                 "shasum": ""
             },
             "require": {
                 "brezgalov/api-wrapper": "^1.0",
+                "brezgalov/i-point": "^1.0",
                 "ext-curl": "*",
                 "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "brezgalov\\GmapsApiClient\\": "src/"
+                    "Brezgalov\\GmapsApiClient\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -79,7 +80,7 @@
                 }
             ],
             "description": "Google maps api client",
-            "time": "2019-01-11T12:47:22+00:00"
+            "time": "2019-03-20T14:21:30+00:00"
         },
         {
             "name": "brezgalov/i-point",
