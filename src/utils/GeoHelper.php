@@ -2,9 +2,9 @@
 
 namespace Brezgalov\PortTransitCommon\Utils;
 
-use brezgalov\GmapsApiClient\GMapsApi;
+use Brezgalov\GmapsApiClient\GMapsApi;
 use Brezgalov\IPoint\IPoint;
-use brezgalov\KladrApiClient\KladrApi;
+use Brezgalov\KladrApiClient\KladrApi;
 
 class GeoHelper
 {
