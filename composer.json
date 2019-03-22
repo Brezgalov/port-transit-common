@@ -14,7 +14,7 @@
         "ext-mbstring": "*",
         "brezgalov/kladr-api-client": "^1.0.1",
         "brezgalov/i-point": "^1.0.1",
-        "brezgalov/gmaps-api-client": "^1.0.3"
+        "brezgalov/gmaps-api-client": "^1.0.5"
     },
     "autoload": {
         "psr-4": {
