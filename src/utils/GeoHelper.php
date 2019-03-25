@@ -55,10 +55,10 @@ class GeoHelper
      */
     protected function getGoogleClient()
     {
-        if (empty($this->kladrClient)) {
-            $this->kladrClient = new GMapsApi($this->googleToken);
+        if (empty($this->googleClient)) {
+            $this->googleClient = new GMapsApi($this->googleToken);
         }
-        return $this->kladrClient;
+        return $this->googleClient;
     }
 
     /**
