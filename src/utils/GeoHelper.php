@@ -83,19 +83,24 @@ class GeoHelper
             'withParent' => 1,
             'contentType' => 'city',
         ]);
-        if (!$response->isSuccessful()) {
+        if (!$response->isSuccessful() || !array_key_exists('result', $response->data)) {
             throw new \Exception('Не удается получить адресс по кладр ' . $kladr);
         }
 
-        $result = $response->data;
+        $result = $response->data['result'];
+        $firstResult = array_shift($result);
+        if (empty($firstResult)) {
+            return '';
+        }
+
         $return = '';
-        if (array_key_exists('parents', $result) && is_array($result['parents'])) {
-            foreach ($result['parents'] as $v) {
+        if (array_key_exists('parents', $firstResult) && is_array($firstResult['parents'])) {
+            foreach ($firstResult['parents'] as $v) {
                 $return .= '' . $v['name'] . ' ' . $v['type'] . ', ';
             }
         }
 
-        return $return . $result['name'] . ', ' . $result['type'];
+        return $return . $firstResult['name'] . ', ' . $firstResult['type'];
     }
 
     /**
