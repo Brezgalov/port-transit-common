@@ -13,8 +13,7 @@
         "php": ">=5.4.0",
         "ext-mbstring": "*",
         "brezgalov/kladr-api-client": "^1.0.1",
-        "brezgalov/i-point": "^1.0.1",
-        "brezgalov/gmaps-api-client": "^1.0.5"
+        "brezgalov/gmaps-api-client": "^1.0.6"
     },
     "autoload": {
         "psr-4": {

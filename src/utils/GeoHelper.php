@@ -4,6 +4,7 @@ namespace Brezgalov\PortTransitCommon\Utils;
 
 use Brezgalov\GmapsApiClient\GMapsApi;
 use Brezgalov\IPoint\IPoint;
+use Brezgalov\IPoint\Point;
 use Brezgalov\KladrApiClient\KladrApi;
 
 class GeoHelper
@@ -121,18 +122,20 @@ class GeoHelper
     }
 
     /**
-     * @param string $address
-     * @return array - ['lat' => ..., 'lon' => ...]
+     * Get coord by address value
+     *
+     * @param $address
+     * @return Point
      * @throws \Exception
      */
     public function getGoogleCoord($address)
     {
         $resp = $this->getGoogleClient()->getPointByAddress($address);
         if ($resp->isSuccessful()) {
-            return [
+            return new Point([
                 'lat' => $resp->data->lat,
                 'lon' => $resp->data->lon,
-            ];
+            ]);
         } else {
             throw new \Exception('Не удалось получить успешный ответ: ' . $resp->status . ': ' . $resp->getErrorsConcat(', '));
         }
