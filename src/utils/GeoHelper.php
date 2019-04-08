@@ -10,6 +10,11 @@ use Brezgalov\KladrApiClient\KladrApi;
 class GeoHelper
 {
     /**
+     * @var array
+     */
+    protected $decorators = [];
+
+    /**
      * @var string
      */
     protected $kladrToken;
@@ -48,6 +53,7 @@ class GeoHelper
         if (empty($this->kladrClient)) {
             $this->kladrClient = new KladrApi($this->kladrToken);
         }
+        $this->kladrClient->setRequestDecorators($this->decorators);
         return $this->kladrClient;
     }
 
@@ -59,6 +65,7 @@ class GeoHelper
         if (empty($this->googleClient)) {
             $this->googleClient = new GMapsApi($this->googleToken);
         }
+        $this->googleClient->setRequestDecorators($this->decorators);
         return $this->googleClient;
     }
 
@@ -70,6 +77,17 @@ class GeoHelper
     public static function selectDistanceDb($lon, $lat)
     {
         return "(6371 * 2 * ASIN(SQRT(POWER(SIN((lat - ABS(" . str_replace(",", ".", $lat) . ")) * PI()/180 / 2), 2) + COS(lat * PI()/180) * COS(ABS(" . str_replace(",", ".", $lat) . ") * PI()/180) * POWER(SIN((lon - " . str_replace(",", ".", $lon) . ") * PI()/180 / 2), 2))))  as distanceDb";
+    }
+
+    /**
+     * set decorators to use
+     * @param array $decorators
+     * @return $this
+     */
+    public function useDecorators(array $decorators)
+    {
+        $this->decorators = $decorators;
+        return $this;
     }
 
     /**

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6ffb7f14a1677e6704c90c6f4e30077",
+    "content-hash": "5fd960ea67b0d8df6ec0a4184bed23f2",
     "packages": [
         {
             "name": "brezgalov/api-wrapper",
-            "version": "v1.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/api-wrapper.git",
-                "reference": "287c27b9bf60d7f47039c21884e4dc104cb022ef"
+                "reference": "2156c505303378f45cfa5df7b06f7beb60dca8cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/api-wrapper/zipball/287c27b9bf60d7f47039c21884e4dc104cb022ef",
-                "reference": "287c27b9bf60d7f47039c21884e4dc104cb022ef",
+                "url": "https://api.github.com/repos/Brezgalov/api-wrapper/zipball/2156c505303378f45cfa5df7b06f7beb60dca8cc",
+                "reference": "2156c505303378f45cfa5df7b06f7beb60dca8cc",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "brezgalov\\ApiWrapper\\": "src/"
+                    "Brezgalov\\ApiWrapper\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -41,32 +41,33 @@
                 }
             ],
             "description": "Api client base classes",
-            "time": "2019-01-11T11:56:04+00:00"
+            "time": "2019-03-22T14:09:18+00:00"
         },
         {
             "name": "brezgalov/gmaps-api-client",
-            "version": "v1.0.1",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/gmaps-api-client.git",
-                "reference": "1a46bd6cb67432775a02f7aac03d0e66170a1065"
+                "reference": "b2b664fe30cb0cc4060453b6ffd6c070080c477f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/gmaps-api-client/zipball/1a46bd6cb67432775a02f7aac03d0e66170a1065",
-                "reference": "1a46bd6cb67432775a02f7aac03d0e66170a1065",
+                "url": "https://api.github.com/repos/Brezgalov/gmaps-api-client/zipball/b2b664fe30cb0cc4060453b6ffd6c070080c477f",
+                "reference": "b2b664fe30cb0cc4060453b6ffd6c070080c477f",
                 "shasum": ""
             },
             "require": {
-                "brezgalov/api-wrapper": "^1.0",
-                "brezgalov/i-point": "^1.0",
+                "brezgalov/api-wrapper": "^1.0.2",
+                "brezgalov/i-point": "^1.0.2",
                 "ext-curl": "*",
                 "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Brezgalov\\GmapsApiClient\\": "src/"
+                    "Brezgalov\\GmapsApiClient\\": "src/",
+                    "Brezgalov\\GmapsApiClient\\Decorators\\": "src/decorators"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -80,20 +81,20 @@
                 }
             ],
             "description": "Google maps api client",
-            "time": "2019-03-20T14:21:30+00:00"
+            "time": "2019-04-04T07:42:35+00:00"
         },
         {
             "name": "brezgalov/i-point",
-            "version": "v1.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/i-point.git",
-                "reference": "d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da"
+                "reference": "7151195a0855b4df69f40017f4152d3e8e7d2227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/i-point/zipball/d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da",
-                "reference": "d6dd2c60eb93d4ee37fccbfc85413c267fa4c0da",
+                "url": "https://api.github.com/repos/Brezgalov/i-point/zipball/7151195a0855b4df69f40017f4152d3e8e7d2227",
+                "reference": "7151195a0855b4df69f40017f4152d3e8e7d2227",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +103,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Brezgalov\\IPoint\\": "src/"
+                    "Brezgalov\\IPoint\\": "src/",
+                    "Brezgalov\\IPoint\\Traits\\": "src/traits"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -116,31 +118,31 @@
                 }
             ],
             "description": "geo point interface",
-            "time": "2019-03-20T13:27:51+00:00"
+            "time": "2019-04-04T07:39:58+00:00"
         },
         {
             "name": "brezgalov/kladr-api-client",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/kladr-api-client.git",
-                "reference": "013731dbd1a6375f55443ebc513337e679d11270"
+                "reference": "b8bda7e27cbbae2fb87698654042814dee0940ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/kladr-api-client/zipball/013731dbd1a6375f55443ebc513337e679d11270",
-                "reference": "013731dbd1a6375f55443ebc513337e679d11270",
+                "url": "https://api.github.com/repos/Brezgalov/kladr-api-client/zipball/b8bda7e27cbbae2fb87698654042814dee0940ba",
+                "reference": "b8bda7e27cbbae2fb87698654042814dee0940ba",
                 "shasum": ""
             },
             "require": {
-                "brezgalov/api-wrapper": "^1.0",
+                "brezgalov/api-wrapper": "^1.0.1",
                 "ext-curl": "*",
                 "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "brezgalov\\KladrApiClient\\": "src/"
+                    "Brezgalov\\KladrApiClient\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -154,7 +156,7 @@
                 }
             ],
             "description": "Api client for kladr api",
-            "time": "2019-01-11T08:15:35+00:00"
+            "time": "2019-03-22T11:31:24+00:00"
         }
     ],
     "packages-dev": [],
