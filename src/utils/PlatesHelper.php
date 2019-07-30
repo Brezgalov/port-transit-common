@@ -86,4 +86,31 @@ class PlatesHelper
 
         return $plate;
     }
+
+    /**
+     * Возвращает регулярки возможных форматов номеров автомобилей или прицепов
+     * @return array
+     */
+    public static function getPlateFormats()
+    {
+        return [
+            '^[a-zA-zА-Яа-я]{2}[0-9]{6,7}$',
+            '^[a-zA-zА-Яа-я]{1}[0-9]{3}[a-zA-zА-Яа-я]{2}[0-9]{2,3}$',
+            '^[0-9]{4}[a-zA-zА-Яа-я]{3}$',
+            '^[a-zA-zА-Яа-я]{1}[0-9]{4}[a-zA-zА-Яа-я]{2}$',
+        ];
+    }
+
+    /**
+     * Проверка номера на соответствие одному из возможных форматов номеров автомобилей или прицепов
+     * @param $plate
+     * @return bool
+     */
+    public static function validatePlateFormat($plate)
+    {
+        $regex = '(' . implode('|', self::getPlateFormats()) . ')';
+        $matches = [];
+        preg_match($regex, $plate, $matches);
+        return !empty($matches);
+    }
 }
