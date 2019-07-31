@@ -109,8 +109,7 @@ class PlatesHelper
     public static function validatePlateFormat($plate)
     {
         $regex = '(' . implode('|', self::getPlateFormats()) . ')';
-        $matches = [];
-        preg_match($regex, $plate, $matches);
+        preg_match($regex, self::toBase($plate), $matches);
         return !empty($matches);
     }
 }
