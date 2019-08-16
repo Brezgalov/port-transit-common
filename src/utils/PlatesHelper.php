@@ -34,7 +34,7 @@ class PlatesHelper
     public static function toBase($plate)
     {
         $plate = mb_strtoupper($plate);
-        $plate = str_replace(' ', '', $plate);
+        $plate = preg_replace('/[^а-яА-Яa-zA-Z0-9]/', '', $plate);
         $plate = str_replace('А', 'A', $plate);
         $plate = str_replace('В', 'B', $plate);
         $plate = str_replace('Е', 'E', $plate);
