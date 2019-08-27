@@ -99,4 +99,94 @@ class StringsHelper
         $cases = array(2, 0, 1, 1, 1, 2);
         return $titles[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
     }
+
+    /**
+     * Конвертирует число в человекопонятную строку, стянуто с https://habr.com/ru/post/53210/
+     * setup = [
+     *  'decimals' => [
+     *      'show' => true,
+     *      'parse' => true,
+     *      'words' => ['копейка', 'копейки', 'копеек', 1], //1 = флаг "женский пол"
+     *  ],
+     *  'units' => ['рубль', 'рубля', 'рублей', 0], //0 = флаг "мужской пол"
+     * ]
+     * @param $number
+     * @param array $decimalsSetup
+     * @return string
+     */
+    public static function numberByWords($number, array $setup = [])
+    {
+        $number = str_replace(',', '.', $number);
+        $number = preg_replace('/[^.0-9]/', '', $number);
+
+        $out = [];
+        $decimalsSetup = [
+            'show'  => true,
+            'parse' => true,
+            'words' => ['копейка', 'копейки', 'копеек', 1],
+        ];
+        if (array_key_exists('decimals', $setup)) {
+            $decimalsSetup = array_merge($decimalsSetup, $setup['decimals']);
+        }
+
+        $unitsWords = ['рубль',       'рубля',    'рублей',       0];
+        if (array_key_exists('units', $setup)) {
+            $unitsWords = $setup['units'];
+        }
+
+        $nul = 'ноль';
+        $ten = [
+            ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'],
+            ['', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'],
+        ];
+        $a20 = [
+            'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать',
+            'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'
+        ];
+        $tens = array(2=>'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто');
+        $hundred = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
+        $unit = [
+            $decimalsSetup['words'],
+            $unitsWords,
+            ['тысяча',      'тысячи',   'тысяч',        1],
+            ['миллион',     'миллиона', 'миллионов',    0],
+            ['миллиард',    'милиарда', 'миллиардов',   0],
+        ];
+
+        list($rub, $kop) = explode('.',sprintf("%015.2f", floatval($number)));
+        if (intval($rub) > 0) {
+            foreach(str_split($rub, 3) as $uk => $v) { // by 3 symbols
+                if (!intval($v)) {
+                    continue;
+                }
+                $uk = sizeof($unit)- $uk -1; // unit key
+                $gender = $unit[$uk][3];
+                list($i1,$i2,$i3) = array_map('intval',str_split($v,1));
+                // mega-logic
+                $out[] = $hundred[$i1]; # 1xx-9xx
+                if ($i2>1) {
+                    $out[]= $tens[$i2].' '.$ten[$gender][$i3];
+                } # 20-99
+                else {
+                    $out[]= $i2>0 ? $a20[$i3] : $ten[$gender][$i3];
+                } # 10-19 | 1-9
+                // units without rub & kop
+                if ($uk>1) {
+                    $out[]= self::numberToWord($v, $unit[$uk][0], $unit[$uk][1], $unit[$uk][2]);
+                }
+            }
+        } else {
+            $out[] = $nul;
+        }
+        $out[] = self::numberToWord(intval($rub), $unit[1][0],$unit[1][1],$unit[1][2]);
+        if ($decimalsSetup['show']) {
+            $out[] = $kop . ($decimalsSetup['parse'] ? (
+                    ' ' . self::numberToWord($kop,$unit[0][0],$unit[0][1],$unit[0][2])
+                ) : (
+                ''
+                ));
+        }
+
+        return trim(preg_replace('/ {2,}/', ' ', join(' ',$out)));
+    }
 }
