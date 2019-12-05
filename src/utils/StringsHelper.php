@@ -5,6 +5,36 @@ namespace Brezgalov\PortTransitCommon\Utils;
 class StringsHelper
 {
     /**
+     * @var array
+     */
+    public static $monthsSource = [
+        1 =>    ['январь',      'января'    ],
+        2 =>    ['февраль',     'февраля'   ],
+        3 =>    ['март',        'марта'     ],
+        4 =>    ['апрель',      'апреля'    ],
+        5 =>    ['май',         'мая'       ],
+        6 =>    ['июнь',        'июня'      ],
+        7 =>    ['июль',        'июля'      ],
+        8 =>    ['август',      'августа'   ],
+        9 =>    ['сентябрь',    'сентября'  ],
+        10 =>   ['октябрь',     'октября'   ],
+        11 =>   ['ноябрь',      'ноября'    ],
+        12 =>   ['декабрь',     'декабря'   ],
+    ];
+
+    /**
+     * @param int $timestamp
+     * @param bool $firstForm
+     * @return string|null
+     */
+    public static function getMonthName($timestamp, $firstForm = true)
+    {
+        $monthNumber = date('n', $timestamp);
+        $form = $firstForm ? 0 : 1;
+        return @self::$monthsSource[$monthNumber][$form];
+    }
+
+    /**
      * Переводим кейс строки в кейс где первая буква каждого слова - заглавная
      * @param string $value
      * @return string
